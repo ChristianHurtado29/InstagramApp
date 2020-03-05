@@ -34,7 +34,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIc-TD-gME">
-                                <rect key="frame" x="174.5" y="389" width="65" height="39"/>
+                                <rect key="frame" x="168" y="389" width="78" height="39"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Login">
@@ -42,7 +42,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlr-2L-tpL">
-                                <rect key="frame" x="169" y="473" width="76" height="39"/>
+                                <rect key="frame" x="169" y="488" width="76" height="39"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Sign Up">
@@ -52,19 +52,37 @@
                                     <action selector="toggleAccountState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XEw-iW-znh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VR-pK-mVp">
+                                <rect key="frame" x="90" y="459" width="234" height="21"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWB-gW-vhR">
+                                <rect key="frame" x="110" y="44" width="194" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rlr-2L-tpL" firstAttribute="top" secondItem="dIc-TD-gME" secondAttribute="bottom" constant="45" id="4Jb-EQ-uMo"/>
+                            <constraint firstItem="rlr-2L-tpL" firstAttribute="top" secondItem="dIc-TD-gME" secondAttribute="bottom" constant="60" id="4Jb-EQ-uMo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wke-Rq-bKz" secondAttribute="trailing" constant="107" id="5mF-9V-tyB"/>
                             <constraint firstItem="dIc-TD-gME" firstAttribute="top" secondItem="wke-Rq-bKz" secondAttribute="bottom" constant="8" id="6fA-u1-CcB"/>
                             <constraint firstItem="J2y-cS-Gn5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CLk-Du-lfE"/>
                             <constraint firstItem="iv1-Xa-uxa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="ETe-Ia-5dG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dIc-TD-gME" secondAttribute="trailing" constant="174.5" id="Mlc-eb-SJi"/>
+                            <constraint firstItem="8VR-pK-mVp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="MWy-Ib-uDP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dIc-TD-gME" secondAttribute="trailing" constant="168" id="Mlc-eb-SJi"/>
                             <constraint firstItem="J2y-cS-Gn5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="NvB-6Z-E5Y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8VR-pK-mVp" secondAttribute="trailing" constant="90" id="Pqd-Me-ry8"/>
                             <constraint firstItem="rlr-2L-tpL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="169" id="QT0-N3-al7"/>
-                            <constraint firstItem="dIc-TD-gME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="174.5" id="Ttl-9z-dZq"/>
+                            <constraint firstItem="dIc-TD-gME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="168" id="Ttl-9z-dZq"/>
                             <constraint firstItem="J2y-cS-Gn5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WTv-u1-96Y"/>
+                            <constraint firstItem="8VR-pK-mVp" firstAttribute="top" secondItem="dIc-TD-gME" secondAttribute="bottom" constant="31" id="aj0-rm-w8p"/>
                             <constraint firstItem="wke-Rq-bKz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="d72-S7-0ds"/>
                             <constraint firstItem="E6I-dJ-pVs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="igB-EZ-cKP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iv1-Xa-uxa" secondAttribute="trailing" constant="107" id="rRM-K8-ViQ"/>
@@ -79,7 +97,10 @@
                     </view>
                     <connections>
                         <outlet property="accountStateButton" destination="rlr-2L-tpL" id="Ebx-4o-K4b"/>
+                        <outlet property="accountStateMessageLabel" destination="8VR-pK-mVp" id="rLX-oL-6qa"/>
+                        <outlet property="containerView" destination="J2y-cS-Gn5" id="Wi8-O9-gBG"/>
                         <outlet property="emailTextField" destination="iv1-Xa-uxa" id="mt3-P3-dFN"/>
+                        <outlet property="errorLabel" destination="JWB-gW-vhR" id="31F-fz-3d6"/>
                         <outlet property="loginButton" destination="dIc-TD-gME" id="iVn-2m-iFM"/>
                         <outlet property="passwordTextField" destination="wke-Rq-bKz" id="4Cx-3g-Kx0"/>
                     </connections>

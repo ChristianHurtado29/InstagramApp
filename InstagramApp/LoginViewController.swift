@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var accountStateButton: UIButton!
+    @IBOutlet weak var accountStateMessageLabel: UILabel!
+    
     
     private var accountState: AccountState = .existingUser
     
