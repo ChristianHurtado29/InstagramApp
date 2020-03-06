@@ -54,6 +54,7 @@ class LoginViewController: UIViewController {
                     DispatchQueue.main.async {
                         self?.errorLabel.text = "\(error.localizedDescription)"
                         self?.errorLabel.textColor = .systemRed
+                        print(error.localizedDescription)
                     }
                 case .success:
                     DispatchQueue.main.async {
@@ -69,6 +70,7 @@ class LoginViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.errorLabel.text = "\(error.localizedDescription)"
                         self.errorLabel.textColor = .systemRed
+                        print(error.localizedDescription)
                     }
                 case .success:
                     DispatchQueue.main.async {

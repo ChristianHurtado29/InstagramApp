@@ -58,16 +58,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="meb-CX-2DR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Qz9-tc-1Vv"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="square.grid.2x2.fill" catalog="system" id="Qz9-tc-1Vv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Je6-7Q-fzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1313.0434782608697" y="-1310.4910714285713"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="cBL-ds-UwS">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wyL-Cg-eZo" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="wyL-Cg-eZo" customClass="MainTabBarController" customModule="InstagramApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1IR-gO-9jf">
                         <autoresizingMask key="autoresizingMask"/>
@@ -120,7 +120,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wVc-FN-2za"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ke1-nC-5jl"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="plus" catalog="system" id="Ke1-nC-5jl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQP-L1-QUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,8 +134,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xoi-ni-our">
-                                <rect key="frame" x="87" y="64" width="240" height="184"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xoi-ni-our">
+                                <rect key="frame" x="87" y="65.5" width="240" height="181"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter display name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJS-wy-HKT">
                                 <rect key="frame" x="87" y="278" width="240" height="34"/>
@@ -168,7 +168,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rif-Be-U98"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="EiI-Db-Ime"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="person.fill" catalog="system" id="EiI-Db-Ime"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NO-Dt-mbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,6 +176,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
         <image name="plus.rectangle" catalog="system" width="64" height="46"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>
