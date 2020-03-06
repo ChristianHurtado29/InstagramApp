@@ -28,7 +28,6 @@ class CreateViewController: UIViewController {
     
     
     @IBAction func uploadPicPressed(_ sender: UIButton) {
-        
         guard let itemName = nameTextfield.text,
             !itemName.isEmpty else {
                 showAlert(title: "Missing fields", message: "please enter the item name/detail")
@@ -44,18 +43,24 @@ class CreateViewController: UIViewController {
             return
         }
         
-        let feedView = FeedViewController()
+        // feedviewcontroller is not coming from storyboard, does not have outlets
+        // but in the case that i'm going to this feedviewcontroller, which does have outlets, the app will crash because this instance of the feedviewcontroller is done programmatically and not using an instance of viewcontroller from storyboard
+        //let feedView = FeedViewController()
         
         dbService.createItem(itemName: itemName, details: details, displayName: displayName) { [weak self] (result) in
             switch result{
             case .failure(let error):
                 self?.showAlert(title: "Failed upload", message: "error uploading item: \(error.localizedDescription)")
+                print("fail")
             case .success:
                 self?.showAlert(title: nil, message: "Successfully listed item! 🥳")
+                print("pass")
             }
         }
-        
-        present(feedView, animated: true)
+        tabBarController?.selectedIndex = 0
+
+//        tabBarController?.selectedIndex = 0
+        //present(feedView, animated: true)
     }
     
     

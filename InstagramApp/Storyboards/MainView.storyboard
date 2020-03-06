@@ -201,32 +201,59 @@
                                 <rect key="frame" x="177" y="466" width="60" height="30"/>
                                 <state key="normal" title="Sign Out"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bG-lN-98g">
+                                <rect key="frame" x="87" y="277" width="240" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhx-HR-KOy">
+                                <rect key="frame" x="281" y="64" width="46" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" image="ellipsis" catalog="system"/>
+                                <connections>
+                                    <action selector="updatePhotoPressed:" destination="27b-E5-PKx" eventType="touchUpInside" id="zIh-p8-wjz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Lhx-HR-KOy" firstAttribute="top" secondItem="rif-Be-U98" secondAttribute="top" constant="20" id="2Oh-ip-VhS"/>
+                            <constraint firstItem="7bG-lN-98g" firstAttribute="trailing" secondItem="TJS-wy-HKT" secondAttribute="trailing" id="3cN-Uo-fTW"/>
                             <constraint firstItem="rif-Be-U98" firstAttribute="trailing" secondItem="TJS-wy-HKT" secondAttribute="trailing" constant="87" id="5tT-NG-Din"/>
                             <constraint firstItem="Pql-uc-9Xr" firstAttribute="top" secondItem="TJS-wy-HKT" secondAttribute="bottom" constant="40" id="8jP-39-jYt"/>
                             <constraint firstItem="AIB-Bv-jw9" firstAttribute="centerX" secondItem="k8H-kf-ALa" secondAttribute="centerX" id="Frc-HQ-aW0"/>
                             <constraint firstItem="rif-Be-U98" firstAttribute="trailing" secondItem="Pql-uc-9Xr" secondAttribute="trailing" constant="158" id="KNS-ei-Jgh"/>
+                            <constraint firstItem="rif-Be-U98" firstAttribute="trailing" secondItem="Lhx-HR-KOy" secondAttribute="trailing" constant="87" id="NcL-lE-rL3"/>
                             <constraint firstItem="Pql-uc-9Xr" firstAttribute="leading" secondItem="rif-Be-U98" secondAttribute="leading" constant="158" id="OGL-69-3ET"/>
                             <constraint firstItem="AIB-Bv-jw9" firstAttribute="top" secondItem="Pql-uc-9Xr" secondAttribute="bottom" constant="84" id="QGq-uO-oeF"/>
+                            <constraint firstItem="TJS-wy-HKT" firstAttribute="top" secondItem="7bG-lN-98g" secondAttribute="bottom" constant="1" id="SWR-0v-cj4"/>
+                            <constraint firstItem="7bG-lN-98g" firstAttribute="centerX" secondItem="k8H-kf-ALa" secondAttribute="centerX" id="Sk3-ab-qLS"/>
                             <constraint firstItem="Xoi-ni-our" firstAttribute="height" secondItem="k8H-kf-ALa" secondAttribute="height" multiplier="0.205357" id="bND-lv-DE3"/>
                             <constraint firstItem="TJS-wy-HKT" firstAttribute="leading" secondItem="rif-Be-U98" secondAttribute="leading" constant="87" id="dxr-mP-zUT"/>
+                            <constraint firstItem="Lhx-HR-KOy" firstAttribute="width" secondItem="Xoi-ni-our" secondAttribute="width" multiplier="0.191667" id="jJf-3U-RST"/>
                             <constraint firstItem="TJS-wy-HKT" firstAttribute="top" secondItem="Xoi-ni-our" secondAttribute="bottom" constant="30" id="msq-bq-kDC"/>
                             <constraint firstItem="Xoi-ni-our" firstAttribute="top" secondItem="rif-Be-U98" secondAttribute="top" constant="20" id="oXw-lw-xhx"/>
+                            <constraint firstItem="7bG-lN-98g" firstAttribute="leading" secondItem="TJS-wy-HKT" secondAttribute="leading" id="obU-2S-EeI"/>
                             <constraint firstItem="Xoi-ni-our" firstAttribute="leading" secondItem="rif-Be-U98" secondAttribute="leading" constant="87" id="wwA-x5-5Y4"/>
                             <constraint firstItem="rif-Be-U98" firstAttribute="trailing" secondItem="Xoi-ni-our" secondAttribute="trailing" constant="87" id="xub-tr-bmw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rif-Be-U98"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="person.fill" catalog="system" id="EiI-Db-Ime"/>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="TJS-wy-HKT" id="03b-nA-7oA"/>
+                        <outlet property="emailLabel" destination="7bG-lN-98g" id="bVK-Z8-eNo"/>
+                        <outlet property="profileImageView" destination="Xoi-ni-our" id="fSh-eq-rCM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NO-Dt-mbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="159"/>
+            <point key="canvasLocation" x="1311.5942028985507" y="158.70535714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis" catalog="system" width="64" height="18"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="photo.fill" catalog="system" width="64" height="46"/>
         <image name="plus" catalog="system" width="64" height="56"/>
