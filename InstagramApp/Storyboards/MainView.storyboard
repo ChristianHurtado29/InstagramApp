@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,14 +15,54 @@
                     <view key="view" contentMode="scaleToFill" id="a4h-sM-gk9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rFZ-vg-dlQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pzy-pf-jGH">
+                                    <size key="itemSize" width="265" height="228"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Oht-g8-K4T">
+                                        <rect key="frame" x="74.5" y="0.0" width="265" height="228"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bBs-g4-LaW">
+                                            <rect key="frame" x="0.0" y="0.0" width="265" height="228"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSr-Bi-6tc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="265" height="228"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="zSr-Bi-6tc" secondAttribute="trailing" id="4DP-3Y-K38"/>
+                                                <constraint firstAttribute="bottom" secondItem="zSr-Bi-6tc" secondAttribute="bottom" id="Okr-5g-pIR"/>
+                                                <constraint firstItem="zSr-Bi-6tc" firstAttribute="top" secondItem="bBs-g4-LaW" secondAttribute="top" id="atr-ix-8Gw"/>
+                                                <constraint firstItem="zSr-Bi-6tc" firstAttribute="leading" secondItem="bBs-g4-LaW" secondAttribute="leading" id="k0O-Nu-xv2"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="265" height="228"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rFZ-vg-dlQ" firstAttribute="leading" secondItem="meb-CX-2DR" secondAttribute="leading" id="OMP-Ab-1IX"/>
+                            <constraint firstItem="rFZ-vg-dlQ" firstAttribute="top" secondItem="meb-CX-2DR" secondAttribute="top" id="TG5-Xc-vMi"/>
+                            <constraint firstItem="rFZ-vg-dlQ" firstAttribute="trailing" secondItem="meb-CX-2DR" secondAttribute="trailing" id="YEv-3g-wjZ"/>
+                            <constraint firstItem="rFZ-vg-dlQ" firstAttribute="bottom" secondItem="meb-CX-2DR" secondAttribute="bottom" id="iEY-X2-tc8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="meb-CX-2DR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Qz9-tc-1Vv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Je6-7Q-fzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="-1310"/>
+            <point key="canvasLocation" x="1313.0434782608697" y="-1310.4910714285713"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cBL-ds-UwS">
@@ -49,14 +90,41 @@
                     <view key="view" contentMode="scaleToFill" id="Mze-1j-fdi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Photo!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53n-Pk-GBt">
+                                <rect key="frame" x="20" y="137" width="374" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wWi-yo-gJ0">
+                                <rect key="frame" x="20" y="187" width="374" height="352"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-Mb-fp8">
+                                <rect key="frame" x="172.5" y="585" width="69" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Upload"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="20" id="Vaf-0r-wCe"/>
+                            <constraint firstItem="53n-Pk-GBt" firstAttribute="top" secondItem="wVc-FN-2za" secondAttribute="top" constant="93" id="YDB-po-3CU"/>
+                            <constraint firstItem="P1v-Mb-fp8" firstAttribute="top" secondItem="wWi-yo-gJ0" secondAttribute="bottom" constant="44.5" id="YTk-R7-FpD"/>
+                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="wWi-yo-gJ0" secondAttribute="trailing" constant="20" id="bOr-Ee-9ZG"/>
+                            <constraint firstItem="53n-Pk-GBt" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="20" id="gUb-Gk-xw0"/>
+                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="53n-Pk-GBt" secondAttribute="trailing" constant="20" id="lHH-Vx-ueZ"/>
+                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="top" secondItem="53n-Pk-GBt" secondAttribute="bottom" constant="8" id="u7I-9M-WPY"/>
+                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="height" secondItem="Mze-1j-fdi" secondAttribute="height" multiplier="0.395647" id="wTZ-j5-oeT"/>
+                            <constraint firstItem="P1v-Mb-fp8" firstAttribute="centerX" secondItem="Mze-1j-fdi" secondAttribute="centerX" id="whQ-o0-GfW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wVc-FN-2za"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Ke1-nC-5jl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQP-L1-QUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="-583"/>
+            <point key="canvasLocation" x="1311.5942028985507" y="-583.25892857142856"/>
         </scene>
         <!--Item-->
         <scene sceneID="rRd-Il-eSp">
@@ -107,4 +175,7 @@
             <point key="canvasLocation" x="1313" y="159"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus.rectangle" catalog="system" width="64" height="46"/>
+    </resources>
 </document>
