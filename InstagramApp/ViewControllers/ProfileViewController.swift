@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayNameLabel.text = ""
         updateUI()
         
     }
@@ -39,7 +40,7 @@ class ProfileViewController: UIViewController {
     private func updateUI(){
         guard let user = Auth.auth().currentUser else { return }
         profileImageView.kf.setImage(with: user.photoURL)
-        displayNameLabel.text = user.displayName
+        displayNameLabel.text = "Welcome back, \(user.displayName ?? "")!"
     }
     
     @IBAction func updatePhotoPressed(_ sender: UIButton) {

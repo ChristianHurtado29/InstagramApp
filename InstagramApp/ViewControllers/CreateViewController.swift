@@ -20,10 +20,49 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var uploadingImage: UIImageView!
     private let dbService = DatabaseService()
 
+    private lazy var imagePickerController: UIImagePickerController = {
+      let picker = UIImagePickerController()
+      picker.delegate = self // confomrm to UIImagePickerContorllerDelegate and UINavigationControllerDelegate
+      return picker
+    }()
+
+    private lazy var longPressGesture: UILongPressGestureRecognizer = {
+      let gesture = UILongPressGestureRecognizer()
+      gesture.addTarget(self, action: #selector(photoOptions))
+        print("long pressing")
+      return gesture
+    }()
+    
+    private var selectedImage: UIImage? {
+      didSet {
+        uploadingImage.image = selectedImage
+      }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        uploadingImage.isUserInteractionEnabled = true
+    uploadingImage.addGestureRecognizer(longPressGesture)
         
+    }
+    
+    @objc func photoOptions(){
+      let alertController = UIAlertController(title: "Choose Photo Option", message: nil, preferredStyle: .actionSheet)
+      let cameraAction = UIAlertAction(title: "Camera", style: .default) { alertAction in
+        self.imagePickerController.sourceType = .camera
+        self.present(self.imagePickerController, animated: true)
+      }
+      let photoLibrary = UIAlertAction(title: "Photo Library", style: .default) { alertAction in
+        self.imagePickerController.sourceType = .photoLibrary
+        self.present(self.imagePickerController, animated: true)
+      }
+      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        alertController.addAction(cameraAction)
+      }
+      alertController.addAction(photoLibrary)
+      alertController.addAction(cancelAction)
+      present(alertController, animated: true)
     }
     
     
@@ -64,4 +103,14 @@ class CreateViewController: UIViewController {
     }
     
     
+}
+
+extension CreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+      fatalError("could not attain original image")
+    }
+    selectedImage = image
+    dismiss(animated: true)
+  }
 }

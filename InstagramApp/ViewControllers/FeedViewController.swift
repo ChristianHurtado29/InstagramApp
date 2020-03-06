@@ -64,8 +64,8 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout{
       let maxSize: CGSize = UIScreen.main.bounds.size
       let spacingBetweenItems: CGFloat = 11
       let numberOfItems: CGFloat = 3
-      let totatSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
-      let itemWidth: CGFloat = (maxSize.width - totatSpacing) / numberOfItems
+      let totalSpacing: CGFloat = (3 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
+      let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
       let itemHeight: CGFloat = maxSize.height * 0.20
       return  CGSize(width: itemWidth, height: itemHeight)
     }
