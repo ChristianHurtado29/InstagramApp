@@ -26,6 +26,8 @@
 		132FF7FD2411DED30006594C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF7FC2411DED30006594C /* UIImage+Extension.swift */; };
 		132FF8002411DF6E0006594C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF7FF2411DF6E0006594C /* StorageService.swift */; };
 		132FF8022411DF9B0006594C /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF8012411DF9B0006594C /* FirebaseStorage.swift */; };
+		132FF8042411E05E0006594C /* Pix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF8032411E05E0006594C /* Pix.swift */; };
+		132FF80A2411E34D0006594C /* PixCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF8092411E34D0006594C /* PixCell.swift */; };
 		DF42810A3F8AF78908845503 /* Pods_InstagramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38B7A07E18C5159AD928F37 /* Pods_InstagramApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		132FF7FC2411DED30006594C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		132FF7FF2411DF6E0006594C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		132FF8012411DF9B0006594C /* FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
+		132FF8032411E05E0006594C /* Pix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pix.swift; sourceTree = "<group>"; };
+		132FF8092411E34D0006594C /* PixCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixCell.swift; sourceTree = "<group>"; };
 		448E373AF4A3DDC79BE417C0 /* Pods-InstagramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramApp.release.xcconfig"; path = "Target Support Files/Pods-InstagramApp/Pods-InstagramApp.release.xcconfig"; sourceTree = "<group>"; };
 		A047C6E246C92A0277B803A5 /* Pods-InstagramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramApp.debug.xcconfig"; path = "Target Support Files/Pods-InstagramApp/Pods-InstagramApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D38B7A07E18C5159AD928F37 /* Pods_InstagramApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,8 @@
 			children = (
 				132FF7D12411A6760006594C /* AppDelegate.swift */,
 				132FF7D32411A6760006594C /* SceneDelegate.swift */,
+				132FF8062411E2E90006594C /* New Group */,
+				132FF8052411E2CD0006594C /* Models */,
 				132FF7ED2411C3370006594C /* FirebaseService */,
 				132FF7EF2411C3740006594C /* ViewControllers */,
 				132FF7EE2411C3530006594C /* Storyboards */,
@@ -143,6 +149,22 @@
 				132FF7FC2411DED30006594C /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		132FF8052411E2CD0006594C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				132FF8032411E05E0006594C /* Pix.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		132FF8062411E2E90006594C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				132FF8092411E34D0006594C /* PixCell.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		876918B6982322E86F4E42B6 /* Frameworks */ = {
@@ -279,9 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132FF8042411E05E0006594C /* Pix.swift in Sources */,
 				132FF7F52411DC0B0006594C /* CreateViewController.swift in Sources */,
 				132FF7FB2411DE8C0006594C /* UIViewController+Alerts.swift in Sources */,
 				132FF7D62411A6760006594C /* LoginViewController.swift in Sources */,
+				132FF80A2411E34D0006594C /* PixCell.swift in Sources */,
 				132FF7FD2411DED30006594C /* UIImage+Extension.swift in Sources */,
 				132FF8022411DF9B0006594C /* FirebaseStorage.swift in Sources */,
 				132FF7EA2411BB9A0006594C /* UIViewController+Navigation.swift in Sources */,
