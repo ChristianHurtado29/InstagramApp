@@ -19,6 +19,9 @@ class CreateViewController: UIViewController {
     
     @IBOutlet weak var uploadingImage: UIImageView!
     private let dbService = DatabaseService()
+    
+    @IBOutlet weak var cancelButtonOut: UIButton!
+    
 
     private lazy var imagePickerController: UIImagePickerController = {
       let picker = UIImagePickerController()
@@ -36,6 +39,7 @@ class CreateViewController: UIViewController {
     private var selectedImage: UIImage? {
       didSet {
         uploadingImage.image = selectedImage
+        cancelButtonOut.isHidden = false
       }
     }
     
@@ -43,6 +47,7 @@ class CreateViewController: UIViewController {
         super.viewDidLoad()
         uploadingImage.isUserInteractionEnabled = true
     uploadingImage.addGestureRecognizer(longPressGesture)
+        cancelButtonOut.isHidden = true
         
     }
     
@@ -97,9 +102,11 @@ class CreateViewController: UIViewController {
             }
         }
         tabBarController?.selectedIndex = 0
-
-//        tabBarController?.selectedIndex = 0
-        //present(feedView, animated: true)
+    }
+    
+    @IBAction func cancelPicture(_ sender: UIButton) {
+        uploadingImage.image = UIImage(named: "plus")
+        cancelButtonOut.isHidden = true
     }
     
     

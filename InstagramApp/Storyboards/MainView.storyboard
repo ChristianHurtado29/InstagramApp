@@ -115,6 +115,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wWi-yo-gJ0">
                                 <rect key="frame" x="48" y="187" width="318" height="255"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6V-nX-rbN">
+                                <rect key="frame" x="48" y="482.5" width="318" height="128"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="details!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgx-Vo-zgq">
                                 <rect key="frame" x="20" y="451.5" width="374" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -128,13 +135,18 @@
                                     <action selector="uploadPicPressed:" destination="hyJ-r5-D5k" eventType="touchUpInside" id="cs3-7C-noc"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6V-nX-rbN">
-                                <rect key="frame" x="48" y="482.5" width="318" height="128"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7h-CW-Be4">
+                                <rect key="frame" x="311" y="186" width="56" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelPicture:" destination="hyJ-r5-D5k" eventType="touchUpInside" id="iN9-2b-Qcr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -165,6 +177,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="plus" catalog="system" id="Ke1-nC-5jl"/>
                     <connections>
+                        <outlet property="cancelButtonOut" destination="F7h-CW-Be4" id="1KE-eY-7Mb"/>
                         <outlet property="detailTextView" destination="R6V-nX-rbN" id="KuU-0X-kIY"/>
                         <outlet property="nameTextfield" destination="5bC-HV-8f0" id="boX-dg-xhc"/>
                         <outlet property="uploadingImage" destination="wWi-yo-gJ0" id="Fl9-uQ-Xsi"/>
