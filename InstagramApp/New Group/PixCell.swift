@@ -11,10 +11,12 @@ import UIKit
 class PixCell: UICollectionViewCell {
     
     @IBOutlet weak var picImageView: UIImageView!
+    @IBOutlet weak var postedBy: UILabel!
     
     public func configureCell(for pic: Pix) {
         let colorImage = pic.image.withTintColor(UIColor.generateRandomColor(), renderingMode: .alwaysOriginal)
         picImageView.image = colorImage
+        postedBy.text = pic.postedBy
     }
 }
 

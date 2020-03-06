@@ -25,7 +25,7 @@
 		132FF7FB2411DE8C0006594C /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF7FA2411DE8C0006594C /* UIViewController+Alerts.swift */; };
 		132FF7FD2411DED30006594C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF7FC2411DED30006594C /* UIImage+Extension.swift */; };
 		132FF8002411DF6E0006594C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF7FF2411DF6E0006594C /* StorageService.swift */; };
-		132FF8022411DF9B0006594C /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF8012411DF9B0006594C /* FirebaseStorage.swift */; };
+		132FF8022411DF9B0006594C /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF8012411DF9B0006594C /* DatabaseService.swift */; };
 		132FF8042411E05E0006594C /* Pix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF8032411E05E0006594C /* Pix.swift */; };
 		132FF80A2411E34D0006594C /* PixCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132FF8092411E34D0006594C /* PixCell.swift */; };
 		DF42810A3F8AF78908845503 /* Pods_InstagramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38B7A07E18C5159AD928F37 /* Pods_InstagramApp.framework */; };
@@ -52,7 +52,7 @@
 		132FF7FA2411DE8C0006594C /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		132FF7FC2411DED30006594C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		132FF7FF2411DF6E0006594C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
-		132FF8012411DF9B0006594C /* FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
+		132FF8012411DF9B0006594C /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		132FF8032411E05E0006594C /* Pix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pix.swift; sourceTree = "<group>"; };
 		132FF8092411E34D0006594C /* PixCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixCell.swift; sourceTree = "<group>"; };
 		448E373AF4A3DDC79BE417C0 /* Pods-InstagramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramApp.release.xcconfig"; path = "Target Support Files/Pods-InstagramApp/Pods-InstagramApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				132FF7E52411B66B0006594C /* AuthenticationSessions.swift */,
-				132FF8012411DF9B0006594C /* FirebaseStorage.swift */,
+				132FF8012411DF9B0006594C /* DatabaseService.swift */,
 				132FF7FF2411DF6E0006594C /* StorageService.swift */,
 			);
 			path = FirebaseService;
@@ -307,7 +307,7 @@
 				132FF7D62411A6760006594C /* LoginViewController.swift in Sources */,
 				132FF80A2411E34D0006594C /* PixCell.swift in Sources */,
 				132FF7FD2411DED30006594C /* UIImage+Extension.swift in Sources */,
-				132FF8022411DF9B0006594C /* FirebaseStorage.swift in Sources */,
+				132FF8022411DF9B0006594C /* DatabaseService.swift in Sources */,
 				132FF7EA2411BB9A0006594C /* UIViewController+Navigation.swift in Sources */,
 				132FF7F12411DB710006594C /* MainTabBarController.swift in Sources */,
 				132FF7D22411A6760006594C /* AppDelegate.swift in Sources */,

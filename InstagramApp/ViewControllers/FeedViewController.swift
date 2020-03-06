@@ -31,9 +31,9 @@ extension FeedViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pixCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PixCell", for: indexPath)
      //   let selPix = pix[indexPath.row]
-        
+        cell.backgroundColor = .systemPink
         return cell
     }
     

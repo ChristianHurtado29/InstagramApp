@@ -11,6 +11,10 @@ import UIKit
 
 struct Pix {
     let image: UIImage
-    let name: String
+    let itemName: String
     let details: String
+    let id: String
+    let listedDate: Date
+    let postedBy: String
+    let postedById: String
 }

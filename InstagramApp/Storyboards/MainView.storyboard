@@ -11,7 +11,7 @@
         <!--Item-->
         <scene sceneID="tnD-yB-WJB">
             <objects>
-                <viewController id="4vA-AC-ew2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="4vA-AC-ew2" customClass="FeedViewController" customModule="InstagramApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a4h-sM-gk9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,8 +33,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="265" height="228"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSr-Bi-6tc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="265" height="228"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zSr-Bi-6tc">
+                                                    <rect key="frame" x="0.0" y="1" width="265" height="225.5"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -59,6 +59,9 @@
                         <viewLayoutGuide key="safeArea" id="meb-CX-2DR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="square.grid.2x2.fill" catalog="system" id="Qz9-tc-1Vv"/>
+                    <connections>
+                        <outlet property="collectionView" destination="rFZ-vg-dlQ" id="WSN-Mk-njo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Je6-7Q-fzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,6 +73,7 @@
                 <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="wyL-Cg-eZo" customClass="MainTabBarController" customModule="InstagramApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1IR-gO-9jf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -86,41 +90,85 @@
         <!--Item-->
         <scene sceneID="UNp-sc-nRD">
             <objects>
-                <viewController id="hyJ-r5-D5k" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateViewController" id="hyJ-r5-D5k" customClass="CreateViewController" customModule="InstagramApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mze-1j-fdi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Photo!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53n-Pk-GBt">
-                                <rect key="frame" x="20" y="137" width="374" height="41"/>
+                                <rect key="frame" x="20" y="64" width="374" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wWi-yo-gJ0">
-                                <rect key="frame" x="20" y="187" width="374" height="352"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pic name..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3q-J0-r2a">
+                                <rect key="frame" x="20" y="113" width="374" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type in name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5bC-HV-8f0">
+                                <rect key="frame" x="20" y="144" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wWi-yo-gJ0">
+                                <rect key="frame" x="48" y="187" width="318" height="255"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-Mb-fp8">
-                                <rect key="frame" x="172.5" y="585" width="69" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Upload"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="details!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgx-Vo-zgq">
+                                <rect key="frame" x="20" y="451.5" width="374" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWZ-sR-Rhj">
+                                <rect key="frame" x="170" y="620.5" width="74" height="30"/>
+                                <state key="normal" title="Upload Pic"/>
+                                <connections>
+                                    <action selector="uploadPicPressed:" destination="hyJ-r5-D5k" eventType="touchUpInside" id="cs3-7C-noc"/>
+                                </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6V-nX-rbN">
+                                <rect key="frame" x="48" y="482.5" width="318" height="128"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="20" id="Vaf-0r-wCe"/>
-                            <constraint firstItem="53n-Pk-GBt" firstAttribute="top" secondItem="wVc-FN-2za" secondAttribute="top" constant="93" id="YDB-po-3CU"/>
-                            <constraint firstItem="P1v-Mb-fp8" firstAttribute="top" secondItem="wWi-yo-gJ0" secondAttribute="bottom" constant="44.5" id="YTk-R7-FpD"/>
-                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="wWi-yo-gJ0" secondAttribute="trailing" constant="20" id="bOr-Ee-9ZG"/>
-                            <constraint firstItem="53n-Pk-GBt" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="20" id="gUb-Gk-xw0"/>
-                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="53n-Pk-GBt" secondAttribute="trailing" constant="20" id="lHH-Vx-ueZ"/>
-                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="top" secondItem="53n-Pk-GBt" secondAttribute="bottom" constant="8" id="u7I-9M-WPY"/>
-                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="height" secondItem="Mze-1j-fdi" secondAttribute="height" multiplier="0.395647" id="wTZ-j5-oeT"/>
-                            <constraint firstItem="P1v-Mb-fp8" firstAttribute="centerX" secondItem="Mze-1j-fdi" secondAttribute="centerX" id="whQ-o0-GfW"/>
+                            <constraint firstItem="LWZ-sR-Rhj" firstAttribute="top" secondItem="R6V-nX-rbN" secondAttribute="bottom" constant="10" id="0zW-Aw-1c7"/>
+                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="R6V-nX-rbN" secondAttribute="trailing" constant="48" id="4EK-VY-DN6"/>
+                            <constraint firstItem="Mgx-Vo-zgq" firstAttribute="top" secondItem="wWi-yo-gJ0" secondAttribute="bottom" constant="8" id="5fr-Ra-LYh"/>
+                            <constraint firstItem="5bC-HV-8f0" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="20" id="8bY-zA-5RB"/>
+                            <constraint firstItem="R6V-nX-rbN" firstAttribute="top" secondItem="Mgx-Vo-zgq" secondAttribute="bottom" constant="8" id="9Bi-cY-dFe"/>
+                            <constraint firstItem="LWZ-sR-Rhj" firstAttribute="centerX" secondItem="Mze-1j-fdi" secondAttribute="centerX" id="Cbe-sR-GL2"/>
+                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="53n-Pk-GBt" secondAttribute="trailing" constant="20" id="LlX-Ya-FRF"/>
+                            <constraint firstItem="5bC-HV-8f0" firstAttribute="top" secondItem="p3q-J0-r2a" secondAttribute="bottom" constant="8" id="Qx9-ui-SrY"/>
+                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="top" secondItem="5bC-HV-8f0" secondAttribute="bottom" constant="8" id="SIQ-FK-orT"/>
+                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="48" id="Tfl-hu-dMi"/>
+                            <constraint firstItem="p3q-J0-r2a" firstAttribute="top" secondItem="53n-Pk-GBt" secondAttribute="bottom" constant="8" id="XlY-eh-3au"/>
+                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="Mgx-Vo-zgq" secondAttribute="trailing" constant="20" id="d64-4g-XY9"/>
+                            <constraint firstItem="53n-Pk-GBt" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="20" id="d6q-UZ-62F"/>
+                            <constraint firstItem="p3q-J0-r2a" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="20" id="eV8-hP-rJb"/>
+                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="wWi-yo-gJ0" secondAttribute="trailing" constant="48" id="jIO-bF-Bkk"/>
+                            <constraint firstItem="R6V-nX-rbN" firstAttribute="height" secondItem="Mze-1j-fdi" secondAttribute="height" multiplier="0.142857" id="jho-mg-y1u"/>
+                            <constraint firstItem="R6V-nX-rbN" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="48" id="muy-dJ-sel"/>
+                            <constraint firstItem="53n-Pk-GBt" firstAttribute="top" secondItem="wVc-FN-2za" secondAttribute="top" constant="20" id="omO-6B-dFN"/>
+                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="5bC-HV-8f0" secondAttribute="trailing" constant="20" id="txZ-ou-Vpb"/>
+                            <constraint firstItem="wWi-yo-gJ0" firstAttribute="height" secondItem="Mze-1j-fdi" secondAttribute="height" multiplier="0.287388" id="vVC-Xl-R5C"/>
+                            <constraint firstItem="wVc-FN-2za" firstAttribute="trailing" secondItem="p3q-J0-r2a" secondAttribute="trailing" constant="20" id="vex-3R-g3r"/>
+                            <constraint firstItem="Mgx-Vo-zgq" firstAttribute="leading" secondItem="wVc-FN-2za" secondAttribute="leading" constant="20" id="ydx-8V-jqa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wVc-FN-2za"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="plus" catalog="system" id="Ke1-nC-5jl"/>
+                    <connections>
+                        <outlet property="detailTextView" destination="R6V-nX-rbN" id="KuU-0X-kIY"/>
+                        <outlet property="nameTextfield" destination="5bC-HV-8f0" id="boX-dg-xhc"/>
+                        <outlet property="uploadingImage" destination="wWi-yo-gJ0" id="Fl9-uQ-Xsi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQP-L1-QUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,7 +177,7 @@
         <!--Item-->
         <scene sceneID="rRd-Il-eSp">
             <objects>
-                <viewController id="27b-E5-PKx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="27b-E5-PKx" customClass="ProfileViewController" customModule="InstagramApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k8H-kf-ALa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,6 +193,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pql-uc-9Xr">
                                 <rect key="frame" x="158" y="352" width="98" height="30"/>
                                 <state key="normal" title="Update Profile"/>
+                                <connections>
+                                    <action selector="updateProfilePressed:" destination="27b-E5-PKx" eventType="touchUpInside" id="gzk-ao-qmb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIB-Bv-jw9">
                                 <rect key="frame" x="177" y="466" width="60" height="30"/>
@@ -177,6 +228,7 @@
     </scenes>
     <resources>
         <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="photo.fill" catalog="system" width="64" height="46"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="plus.rectangle" catalog="system" width="64" height="46"/>
         <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
