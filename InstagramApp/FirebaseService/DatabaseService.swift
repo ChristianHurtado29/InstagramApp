@@ -16,7 +16,7 @@ class DatabaseService {
     
     private let db = Firestore.firestore()
     
-    public func createItem(itemName: String, details: String, displayName: String, completion: @escaping (Result<Bool,Error>) ->()) {
+    public func createItem(itemName: String, details: String, displayName: String, completion: @escaping (Result<String,Error>) ->()) {
         guard let user = Auth.auth().currentUser else { return  }
         
         let documentRef = db.collection(DatabaseService.itemsCollection).document()
@@ -38,7 +38,7 @@ class DatabaseService {
                 if let error = error {
                     completion(.failure(error ))
                 } else {
-                    completion(.success(true))
+                    completion(.success(documentRef.documentID))
                 }
                 
         }

@@ -72,24 +72,31 @@ class CreateViewController: UIViewController {
     
     
     @IBAction func uploadPicPressed(_ sender: UIButton) {
+        guard let displayName = Auth.auth().currentUser?.displayName  else {
+            showAlert(title: "Incomplete profile", message: "Please create a user profile first")
+            return
+        }
         guard let itemName = nameTextfield.text,
             !itemName.isEmpty,
             let details = detailTextView.text,
             !details.isEmpty,
-            let displayName = Auth.auth().currentUser?.displayName
+            let selectedImage = selectedImage
             else {
-                showAlert(title: "Missing fields", message: "please enter the item name/detail")
+                showAlert(title: "Missing fields", message: "please enter the item name/detail/photo")
                 return
         }
-        //        guard let details = detailTextView.text,
-        //        !details.isEmpty else {
-        //                showAlert(title: "Missing fields", message: "please enter the item name/detail")
-        //                return
-        //        }
-        //        guard let displayName = Auth.auth().currentUser?.displayName  else {
-        //            showAlert(title: "Incomplete profile", message: "Please create a user profile first")
-        //            return
-        //        }
+        
+        let resizedImage = UIImage.resizeImage(originalImage: selectedImage, rect: uploadingImage.bounds)
+        dbService.createItem(itemName: itemName, details: details, displayName: displayName) { [weak self] (result) in
+          switch result {
+          case.failure(let error):
+            DispatchQueue.main.async {
+              self?.showAlert(title: "Error creating item", message: "Sorry something went wrong: \(error.localizedDescription)")
+            }
+          case .success(let documentId):
+            self?.uploadPhoto(photo: resizedImage, documentId: documentId)
+          }
+        }
         
         // feedviewcontroller is not coming from storyboard, does not have outlets
         // but in the case that i'm going to this feedviewcontroller, which does have outlets, the app will crash because this instance of the feedviewcontroller is done programmatically and not using an instance of viewcontroller from storyboard
