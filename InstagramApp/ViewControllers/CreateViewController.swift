@@ -26,7 +26,7 @@ class CreateViewController: UIViewController {
     
     private lazy var imagePickerController: UIImagePickerController = {
         let picker = UIImagePickerController()
-        picker.delegate = self // confomrm to UIImagePickerContorllerDelegate and UINavigationControllerDelegate
+        picker.delegate = self
         return picker
     }()
     
@@ -106,17 +106,12 @@ class CreateViewController: UIViewController {
             switch result{
             case .failure(let error):
                 self?.showAlert(title: "Failed upload", message: "error uploading item: \(error.localizedDescription)")
-                print("fail")
             case .success:
                 self?.showAlert(title: nil, message: "Successfully listed item! 🥳")
-                print("pass")
             }
         }
         tabBarController?.selectedIndex = 0
     }
-    
-    
-    
     
     private func uploadPhoto(photo: UIImage, documentId: String) {
         storageService.uploadPhoto(itemId: documentId, image: photo) { [weak self] (result) in
@@ -137,8 +132,6 @@ class CreateViewController: UIViewController {
                 self?.showAlert(title: "Fail to update item", message: "\(error.localizedDescription)")
             }
         } else {
-            // everything went ok
-            print("all went well with the update")
             DispatchQueue.main.async {
                 self?.dismiss(animated: true)
             }
@@ -150,8 +143,6 @@ class CreateViewController: UIViewController {
         uploadingImage.image = UIImage(named: "plus")
         cancelButtonOut.isHidden = true
     }
-    
-    
 }
 
 

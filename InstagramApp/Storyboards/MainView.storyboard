@@ -20,31 +20,44 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pzy-pf-jGH">
-                                    <size key="itemSize" width="265" height="228"/>
+                                    <size key="itemSize" width="292" height="268"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Oht-g8-K4T">
-                                        <rect key="frame" x="74.5" y="0.0" width="265" height="228"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PixCell" id="Oht-g8-K4T" customClass="PixCell" customModule="InstagramApp" customModuleProvider="target">
+                                        <rect key="frame" x="61" y="0.0" width="292" height="268"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bBs-g4-LaW">
-                                            <rect key="frame" x="0.0" y="0.0" width="265" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="292" height="268"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zSr-Bi-6tc">
-                                                    <rect key="frame" x="0.0" y="1" width="265" height="225.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F3F-Ag-svE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="292" height="220"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qd-aV-7ne">
+                                                    <rect key="frame" x="8" y="228" width="276" height="23"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="zSr-Bi-6tc" secondAttribute="trailing" id="4DP-3Y-K38"/>
-                                                <constraint firstAttribute="bottom" secondItem="zSr-Bi-6tc" secondAttribute="bottom" id="Okr-5g-pIR"/>
-                                                <constraint firstItem="zSr-Bi-6tc" firstAttribute="top" secondItem="bBs-g4-LaW" secondAttribute="top" id="atr-ix-8Gw"/>
-                                                <constraint firstItem="zSr-Bi-6tc" firstAttribute="leading" secondItem="bBs-g4-LaW" secondAttribute="leading" id="k0O-Nu-xv2"/>
+                                                <constraint firstAttribute="trailing" secondItem="F3F-Ag-svE" secondAttribute="trailing" id="CkV-xo-flX"/>
+                                                <constraint firstItem="2qd-aV-7ne" firstAttribute="leading" secondItem="bBs-g4-LaW" secondAttribute="leading" constant="8" id="HGw-36-5gI"/>
+                                                <constraint firstItem="F3F-Ag-svE" firstAttribute="height" secondItem="bBs-g4-LaW" secondAttribute="height" multiplier="0.820896" id="HqC-jk-qRU"/>
+                                                <constraint firstItem="F3F-Ag-svE" firstAttribute="leading" secondItem="bBs-g4-LaW" secondAttribute="leading" id="ILH-CA-Lea"/>
+                                                <constraint firstItem="2qd-aV-7ne" firstAttribute="top" secondItem="F3F-Ag-svE" secondAttribute="bottom" constant="8" id="K1T-nq-ixP"/>
+                                                <constraint firstAttribute="trailing" secondItem="2qd-aV-7ne" secondAttribute="trailing" constant="8" id="QaU-i1-e0U"/>
+                                                <constraint firstItem="F3F-Ag-svE" firstAttribute="top" secondItem="bBs-g4-LaW" secondAttribute="top" id="eyF-gn-1Gc"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="265" height="228"/>
+                                        <size key="customSize" width="292" height="268"/>
+                                        <connections>
+                                            <outlet property="picImageView" destination="F3F-Ag-svE" id="IQk-OH-Xki"/>
+                                            <outlet property="postedBy" destination="2qd-aV-7ne" id="Jas-Vb-QEi"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -272,7 +285,6 @@
     <resources>
         <image name="ellipsis" catalog="system" width="64" height="18"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
-        <image name="photo.fill" catalog="system" width="64" height="46"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="plus.rectangle" catalog="system" width="64" height="46"/>
         <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>

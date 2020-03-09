@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PixCell: UICollectionViewCell {
     
@@ -14,8 +15,7 @@ class PixCell: UICollectionViewCell {
     @IBOutlet weak var postedBy: UILabel!
     
     public func configureCell(for pic: Pix) {
-        let colorImage = pic.image.withTintColor(UIColor.generateRandomColor(), renderingMode: .alwaysOriginal)
-        picImageView.image = colorImage
+        picImageView.kf.setImage(with: URL(string: pic.imageURL))
         postedBy.text = pic.postedBy
     }
 }

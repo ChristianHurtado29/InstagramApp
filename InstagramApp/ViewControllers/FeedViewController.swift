@@ -27,7 +27,7 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(PixCell.self, forCellWithReuseIdentifier: "PixCell")
+
         
         listener = Firestore.firestore().collection(DatabaseService.itemsCollection).addSnapshotListener({ [weak self] (snapshot, error) in
           if let error = error {
@@ -35,8 +35,8 @@ class FeedViewController: UIViewController {
               self?.showAlert(title: "Try again later", message: "\(error.localizedDescription)")
             }
           } else if let snapshot = snapshot {
-            //let items = snapshot.documents.map
-           // self?.pix = items
+            let pics = snapshot.documents.map { Pix($0.data()) }
+            self?.pix = pics
           }
         })
     }
@@ -46,18 +46,20 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return pix.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PixCell", for: indexPath)
-     //   let selPix = pix[indexPath.row]
-        cell.backgroundColor = .systemPink
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PixCell", for: indexPath) as? PixCell else{
+            fatalError("could not downcast to PixCell")
+        }
+        let selPix = pix[indexPath.row]
+        cell.configureCell(for: selPix)
+        cell.backgroundColor = .systemGray
         return cell
     }
-    
-    
 }
+
 
 extension FeedViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -66,7 +68,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout{
       let numberOfItems: CGFloat = 3
       let totalSpacing: CGFloat = (3 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
       let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
-      let itemHeight: CGFloat = maxSize.height * 0.20
+      let itemHeight: CGFloat = maxSize.height * 0.15
       return  CGSize(width: itemWidth, height: itemHeight)
     }
     
