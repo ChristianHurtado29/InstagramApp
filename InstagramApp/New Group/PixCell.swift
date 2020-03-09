@@ -16,7 +16,7 @@ class PixCell: UICollectionViewCell {
     
     public func configureCell(for pic: Pix) {
         picImageView.kf.setImage(with: URL(string: pic.imageURL))
-        postedBy.text = pic.postedBy
+        postedBy.text = "By: \(pic.postedBy)"
     }
 }
 

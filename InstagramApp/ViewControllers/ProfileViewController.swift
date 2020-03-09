@@ -12,9 +12,11 @@ import Kingfisher
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var displayNameLabel: UILabel!
+    @IBOutlet weak var updatePhotoButton: UIButton!
     
     private lazy var imagePickerController: UIImagePickerController = {
         let ip = UIImagePickerController()
@@ -34,7 +36,9 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         displayNameLabel.text = ""
         updateUI()
-        
+        backgroundImage.image = UIImage(named: "profileBack")
+        profileImageView.layer.cornerRadius = 30
+        updatePhotoButton.layer.cornerRadius = 30
     }
     
     private func updateUI(){
@@ -66,15 +70,12 @@ class ProfileViewController: UIViewController {
             guard let displayName = self.displayNameTextField.text,
                 !displayName.isEmpty,
                 let selectedImage = self.selectedImage else {
-                    print("missing fields")
+                    displayNameLabel.text = "Welcome, \(displayNameTextField.text ?? "")!"
                     return
             }
             
             guard let user = Auth.auth().currentUser else { return }
             let resizedImage = UIImage.resizeImage(originalImage: selectedImage, rect: self.profileImageView.bounds)
-            
-            print("original image size: \(selectedImage.size)")
-            print("resized image size: \(resizedImage)")
             self.storageService.uploadPhoto(userId: user.uid, image: resizedImage) { [weak self] (result) in
                 switch result {
                 case .failure(let error):

@@ -20,10 +20,9 @@ class CreateViewController: UIViewController {
     private let dbService = DatabaseService()
     private let storageService = StorageService()
     
-    
     @IBOutlet weak var cancelButtonOut: UIButton!
     
-    
+
     private lazy var imagePickerController: UIImagePickerController = {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -49,6 +48,7 @@ class CreateViewController: UIViewController {
         uploadingImage.isUserInteractionEnabled = true
         uploadingImage.addGestureRecognizer(longPressGesture)
         cancelButtonOut.isHidden = true
+        cancelButtonOut.layer.cornerRadius = 10
     }
     
     @objc func photoOptions(){
@@ -95,6 +95,7 @@ class CreateViewController: UIViewController {
             }
           case .success(let documentId):
             self?.uploadPhoto(photo: resizedImage, documentId: documentId)
+            self?.showAlert(title: nil, message: "Successfully listed item! 🥳")
           }
         }
         
@@ -102,17 +103,8 @@ class CreateViewController: UIViewController {
         // but in the case that i'm going to this feedviewcontroller, which does have outlets, the app will crash because this instance of the feedviewcontroller is done programmatically and not using an instance of viewcontroller from storyboard
         //let feedView = FeedViewController()
         
-        dbService.createItem(itemName: itemName, details: details, displayName: displayName) { [weak self] (result) in
-            switch result{
-            case .failure(let error):
-                self?.showAlert(title: "Failed upload", message: "error uploading item: \(error.localizedDescription)")
-            case .success:
-                self?.showAlert(title: nil, message: "Successfully listed item! 🥳")
-            }
-        }
         tabBarController?.selectedIndex = 0
     }
-    
     private func uploadPhoto(photo: UIImage, documentId: String) {
         storageService.uploadPhoto(itemId: documentId, image: photo) { [weak self] (result) in
             switch result {
