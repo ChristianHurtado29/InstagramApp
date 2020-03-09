@@ -60,6 +60,16 @@ extension FeedViewController: UICollectionViewDataSource{
 
 
 extension FeedViewController: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let post = pix[indexPath.row]
+        let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(identifier: "Detail") { coder in
+            return DetailViewController(coder: coder, post)
+        }
+        present(detailVC, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       let maxSize: CGSize = UIScreen.main.bounds.size
       let spacingBetweenItems: CGFloat = 5

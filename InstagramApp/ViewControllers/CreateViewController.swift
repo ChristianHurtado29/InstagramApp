@@ -49,6 +49,8 @@ class CreateViewController: UIViewController {
         uploadingImage.addGestureRecognizer(longPressGesture)
         cancelButtonOut.isHidden = true
         cancelButtonOut.layer.cornerRadius = 10
+        nameTextfield.delegate = self
+        detailTextView.delegate = self
     }
     
     @objc func photoOptions(){
@@ -145,5 +147,16 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
         selectedImage = image
         dismiss(animated: true)
+    }
+}
+
+extension CreateViewController: UITextViewDelegate{
+    
+}
+
+extension CreateViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextfield.resignFirstResponder()
+        return true
     }
 }
