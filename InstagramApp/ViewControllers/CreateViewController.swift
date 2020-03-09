@@ -14,78 +14,82 @@ import FirebaseAuth
 class CreateViewController: UIViewController {
     
     @IBOutlet weak var nameTextfield: UITextField!
-    
     @IBOutlet weak var detailTextView: UITextView!
-    
     @IBOutlet weak var uploadingImage: UIImageView!
+    
     private let dbService = DatabaseService()
+    private let storageService = StorageService()
+    
     
     @IBOutlet weak var cancelButtonOut: UIButton!
     
-
+    
     private lazy var imagePickerController: UIImagePickerController = {
-      let picker = UIImagePickerController()
-      picker.delegate = self // confomrm to UIImagePickerContorllerDelegate and UINavigationControllerDelegate
-      return picker
+        let picker = UIImagePickerController()
+        picker.delegate = self // confomrm to UIImagePickerContorllerDelegate and UINavigationControllerDelegate
+        return picker
     }()
-
+    
     private lazy var longPressGesture: UILongPressGestureRecognizer = {
-      let gesture = UILongPressGestureRecognizer()
-      gesture.addTarget(self, action: #selector(photoOptions))
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(photoOptions))
         print("long pressing")
-      return gesture
+        return gesture
     }()
     
     private var selectedImage: UIImage? {
-      didSet {
-        uploadingImage.image = selectedImage
-        cancelButtonOut.isHidden = false
-      }
+        didSet {
+            uploadingImage.image = selectedImage
+            cancelButtonOut.isHidden = false
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         uploadingImage.isUserInteractionEnabled = true
-    uploadingImage.addGestureRecognizer(longPressGesture)
+        uploadingImage.addGestureRecognizer(longPressGesture)
         cancelButtonOut.isHidden = true
-        
     }
     
     @objc func photoOptions(){
-      let alertController = UIAlertController(title: "Choose Photo Option", message: nil, preferredStyle: .actionSheet)
-      let cameraAction = UIAlertAction(title: "Camera", style: .default) { alertAction in
-        self.imagePickerController.sourceType = .camera
-        self.present(self.imagePickerController, animated: true)
-      }
-      let photoLibrary = UIAlertAction(title: "Photo Library", style: .default) { alertAction in
-        self.imagePickerController.sourceType = .photoLibrary
-        self.present(self.imagePickerController, animated: true)
-      }
-      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-      if UIImagePickerController.isSourceTypeAvailable(.camera) {
-        alertController.addAction(cameraAction)
-      }
-      alertController.addAction(photoLibrary)
-      alertController.addAction(cancelAction)
-      present(alertController, animated: true)
+        let alertController = UIAlertController(title: "Choose Photo Option", message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { alertAction in
+            self.imagePickerController.sourceType = .camera
+            self.present(self.imagePickerController, animated: true)
+        }
+        let photoLibrary = UIAlertAction(title: "Photo Library", style: .default) { alertAction in
+            self.imagePickerController.sourceType = .photoLibrary
+            self.present(self.imagePickerController, animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alertController.addAction(cameraAction)
+        }
+        alertController.addAction(photoLibrary)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
     
     
     @IBAction func uploadPicPressed(_ sender: UIButton) {
         guard let itemName = nameTextfield.text,
-            !itemName.isEmpty else {
+            !itemName.isEmpty,
+            let details = detailTextView.text,
+            !details.isEmpty,
+            let displayName = Auth.auth().currentUser?.displayName
+            else {
                 showAlert(title: "Missing fields", message: "please enter the item name/detail")
                 return
         }
-        guard let details = detailTextView.text,
-        !details.isEmpty else {
-                showAlert(title: "Missing fields", message: "please enter the item name/detail")
-                return
-        }
-        guard let displayName = Auth.auth().currentUser?.displayName  else {
-            showAlert(title: "Incomplete profile", message: "Please create a user profile first")
-            return
-        }
+        //        guard let details = detailTextView.text,
+        //        !details.isEmpty else {
+        //                showAlert(title: "Missing fields", message: "please enter the item name/detail")
+        //                return
+        //        }
+        //        guard let displayName = Auth.auth().currentUser?.displayName  else {
+        //            showAlert(title: "Incomplete profile", message: "Please create a user profile first")
+        //            return
+        //        }
         
         // feedviewcontroller is not coming from storyboard, does not have outlets
         // but in the case that i'm going to this feedviewcontroller, which does have outlets, the app will crash because this instance of the feedviewcontroller is done programmatically and not using an instance of viewcontroller from storyboard
@@ -104,6 +108,37 @@ class CreateViewController: UIViewController {
         tabBarController?.selectedIndex = 0
     }
     
+    
+    
+    
+    private func uploadPhoto(photo: UIImage, documentId: String) {
+        storageService.uploadPhoto(itemId: documentId, image: photo) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Error uploading photo", message: "\(error.localizedDescription)")
+                }
+            case .success(let url):
+                self?.updateItemImageURL(url, documentId: documentId)
+            }
+        }
+    }
+    
+    private func updateItemImageURL(_ url: URL, documentId: String) {      Firestore.firestore().collection(DatabaseService.itemsCollection).document(documentId).updateData(["imageURL" : url.absoluteString]) { [weak self] (error) in
+        if let error = error {
+            DispatchQueue.main.async {
+                self?.showAlert(title: "Fail to update item", message: "\(error.localizedDescription)")
+            }
+        } else {
+            // everything went ok
+            print("all went well with the update")
+            DispatchQueue.main.async {
+                self?.dismiss(animated: true)
+            }
+        }
+        }
+    }
+    
     @IBAction func cancelPicture(_ sender: UIButton) {
         uploadingImage.image = UIImage(named: "plus")
         cancelButtonOut.isHidden = true
@@ -112,12 +147,13 @@ class CreateViewController: UIViewController {
     
 }
 
+
 extension CreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-      fatalError("could not attain original image")
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("could not attain original image")
+        }
+        selectedImage = image
+        dismiss(animated: true)
     }
-    selectedImage = image
-    dismiss(animated: true)
-  }
 }
