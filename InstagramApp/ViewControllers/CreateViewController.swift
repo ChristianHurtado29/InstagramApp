@@ -16,12 +16,10 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var uploadingImage: UIImageView!
-    
+    @IBOutlet weak var uploadOutlet: UIButton!
     private let dbService = DatabaseService()
     private let storageService = StorageService()
-    
     @IBOutlet weak var cancelButtonOut: UIButton!
-    
 
     private lazy var imagePickerController: UIImagePickerController = {
         let picker = UIImagePickerController()
@@ -40,6 +38,8 @@ class CreateViewController: UIViewController {
         didSet {
             uploadingImage.image = selectedImage
             cancelButtonOut.isHidden = false
+            uploadingImage.layer.cornerRadius = 10
+            uploadOutlet.layer.cornerRadius = 10
         }
     }
     

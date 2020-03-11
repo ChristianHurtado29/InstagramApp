@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var picNameLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
+    @IBOutlet weak var datePosted: UILabel!
     
     public var post: Pix
     
@@ -33,6 +34,8 @@ class DetailViewController: UIViewController {
         picNameLabel.text = post.itemName
         detailsLabel.text = post.details
         selectedPic.kf.setImage(with: URL(string: post.imageURL))
+        datePosted.text = "\(post.listedDate)"
+        print(datePosted)
 
     }
     

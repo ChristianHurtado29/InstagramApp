@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var updatePhotoButton: UIButton!
+    @IBOutlet weak var signoutButtonOut: UIButton!
     
     private lazy var imagePickerController: UIImagePickerController = {
         let ip = UIImagePickerController()
@@ -39,6 +40,7 @@ class ProfileViewController: UIViewController {
         backgroundImage.image = UIImage(named: "profileBack")
         profileImageView.layer.cornerRadius = 30
         updatePhotoButton.layer.cornerRadius = 30
+        signoutButtonOut.layer.cornerRadius = 10
     }
     
     private func updateUI(){

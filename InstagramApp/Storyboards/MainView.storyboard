@@ -93,11 +93,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailedBack" translatesAutoresizingMaskIntoConstraints="NO" id="Tj6-3H-jRc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BMn-5c-ZbK">
                                 <rect key="frame" x="0.0" y="44" width="414" height="375"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwj-ED-JFb">
-                                <rect key="frame" x="20" y="427" width="374" height="42"/>
+                                <rect key="frame" x="20" y="427" width="214" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -114,27 +117,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-1d-pQX">
+                                <rect key="frame" x="242" y="437" width="152" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="qwj-ED-JFb" firstAttribute="leading" secondItem="iUg-tJ-sRH" secondAttribute="leading" constant="20" id="0uW-Jv-9iw"/>
+                            <constraint firstItem="Tj6-3H-jRc" firstAttribute="top" secondItem="YhY-gf-Tph" secondAttribute="top" id="7lf-jy-9bs"/>
+                            <constraint firstItem="gV0-1d-pQX" firstAttribute="top" secondItem="BMn-5c-ZbK" secondAttribute="bottom" constant="18" id="9J3-89-Bra"/>
                             <constraint firstItem="BMn-5c-ZbK" firstAttribute="leading" secondItem="iUg-tJ-sRH" secondAttribute="leading" id="BaP-4Q-Iu1"/>
+                            <constraint firstItem="iUg-tJ-sRH" firstAttribute="trailing" secondItem="gV0-1d-pQX" secondAttribute="trailing" constant="20" id="D8O-9n-DRF"/>
                             <constraint firstItem="sYR-vN-Tzf" firstAttribute="top" secondItem="A2r-SA-XH3" secondAttribute="bottom" constant="20" id="DY7-jI-VxG"/>
                             <constraint firstItem="iUg-tJ-sRH" firstAttribute="trailing" secondItem="sYR-vN-Tzf" secondAttribute="trailing" constant="20" id="H4Q-QT-K6l"/>
+                            <constraint firstItem="gV0-1d-pQX" firstAttribute="leading" secondItem="qwj-ED-JFb" secondAttribute="trailing" constant="8" id="Nnc-ao-aZm"/>
+                            <constraint firstItem="Tj6-3H-jRc" firstAttribute="leading" secondItem="iUg-tJ-sRH" secondAttribute="leading" id="U36-26-qfE"/>
                             <constraint firstItem="A2r-SA-XH3" firstAttribute="leading" secondItem="iUg-tJ-sRH" secondAttribute="leading" constant="20" id="XcB-QH-43d"/>
+                            <constraint firstAttribute="bottom" secondItem="Tj6-3H-jRc" secondAttribute="bottom" id="XzJ-JS-UJ4"/>
                             <constraint firstItem="BMn-5c-ZbK" firstAttribute="height" secondItem="YhY-gf-Tph" secondAttribute="height" multiplier="0.418527" id="db8-LB-4mg"/>
                             <constraint firstItem="A2r-SA-XH3" firstAttribute="top" secondItem="qwj-ED-JFb" secondAttribute="bottom" constant="8" id="i1G-gy-JGq"/>
                             <constraint firstItem="BMn-5c-ZbK" firstAttribute="top" secondItem="iUg-tJ-sRH" secondAttribute="top" id="i3T-SA-8yh"/>
                             <constraint firstItem="qwj-ED-JFb" firstAttribute="top" secondItem="BMn-5c-ZbK" secondAttribute="bottom" constant="8" id="mtd-LX-37M"/>
                             <constraint firstItem="sYR-vN-Tzf" firstAttribute="leading" secondItem="iUg-tJ-sRH" secondAttribute="leading" constant="20" id="oon-Y0-aK7"/>
                             <constraint firstItem="iUg-tJ-sRH" firstAttribute="trailing" secondItem="A2r-SA-XH3" secondAttribute="trailing" constant="20" id="q0o-rD-CML"/>
-                            <constraint firstItem="iUg-tJ-sRH" firstAttribute="trailing" secondItem="qwj-ED-JFb" secondAttribute="trailing" constant="20" id="sqv-Qt-tcl"/>
+                            <constraint firstItem="iUg-tJ-sRH" firstAttribute="trailing" secondItem="qwj-ED-JFb" secondAttribute="trailing" constant="180" id="sqv-Qt-tcl"/>
+                            <constraint firstItem="Tj6-3H-jRc" firstAttribute="trailing" secondItem="iUg-tJ-sRH" secondAttribute="trailing" id="tGO-82-FUB"/>
                             <constraint firstItem="BMn-5c-ZbK" firstAttribute="trailing" secondItem="iUg-tJ-sRH" secondAttribute="trailing" id="vG8-Sa-YeU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iUg-tJ-sRH"/>
                     </view>
                     <navigationItem key="navigationItem" id="Khk-zH-gMj"/>
                     <connections>
+                        <outlet property="datePosted" destination="gV0-1d-pQX" id="zeE-sJ-NNa"/>
                         <outlet property="detailsLabel" destination="sYR-vN-Tzf" id="gi7-E9-cmW"/>
                         <outlet property="picNameLabel" destination="A2r-SA-XH3" id="AXN-B8-d7q"/>
                         <outlet property="selectedPic" destination="BMn-5c-ZbK" id="a8K-0V-cSc"/>
@@ -143,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71x-Az-M3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2425" y="-1310"/>
+            <point key="canvasLocation" x="2424.6376811594205" y="-1310.4910714285713"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="cBL-ds-UwS">
@@ -266,6 +283,7 @@
                         <outlet property="cancelButtonOut" destination="F7h-CW-Be4" id="1KE-eY-7Mb"/>
                         <outlet property="detailTextView" destination="R6V-nX-rbN" id="KuU-0X-kIY"/>
                         <outlet property="nameTextfield" destination="5bC-HV-8f0" id="boX-dg-xhc"/>
+                        <outlet property="uploadOutlet" destination="LWZ-sR-Rhj" id="1Xd-Gw-9wY"/>
                         <outlet property="uploadingImage" destination="wWi-yo-gJ0" id="Fl9-uQ-Xsi"/>
                     </connections>
                 </viewController>
@@ -359,6 +377,7 @@
                         <outlet property="displayNameLabel" destination="eOg-jP-tOQ" id="gDu-Ai-sp7"/>
                         <outlet property="displayNameTextField" destination="TJS-wy-HKT" id="03b-nA-7oA"/>
                         <outlet property="profileImageView" destination="Xoi-ni-our" id="fSh-eq-rCM"/>
+                        <outlet property="signoutButtonOut" destination="AIB-Bv-jw9" id="f3u-7q-STy"/>
                         <outlet property="updatePhotoButton" destination="Lhx-HR-KOy" id="SD8-6r-mMV"/>
                     </connections>
                 </viewController>
@@ -368,6 +387,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="detailedBack" width="640" height="1136"/>
         <image name="ellipsis" catalog="system" width="64" height="18"/>
         <image name="feedBack" width="872" height="1634"/>
         <image name="newUploadBack" width="736" height="1308"/>
